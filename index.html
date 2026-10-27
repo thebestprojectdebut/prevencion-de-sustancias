@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Let's Prevent Together!</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --green: #41c98e;
+    --dark-green: #187c59;
+    --yellow: #ffdc60;
+    --blue: #77d8ff;
+    --pink: #ff9fc8;
+    --purple: #bba5ff;
+    --dark: #29434b;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #fffdf6;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Fredoka', sans-serif;
+}
+
+header {
+    background: white;
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 15px #00000008;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-green);
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 800;
+    padding: 8px 13px;
+    border-radius: 20px;
+    transition: .2s;
+}
+
+nav a:hover {
+    background: var(--yellow);
+    transform: translateY(-2px);
+}
+
+.hero {
+    background: #c9f7df;
+    padding: 65px 8%;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 25px;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    line-height: 1.08;
+    color: #176747;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    max-width: 470px;
+    margin-bottom: 25px;
+}
+
+.sticker {
+    display: inline-block;
+    background: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 900;
+    transform: rotate(-2deg);
+    margin-bottom: 18px;
+}
+
+.hero-picture {
+    text-align: center;
+    font-size: clamp(5rem, 11vw, 9rem);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.button {
+    display: inline-block;
+    border: none;
+    border-radius: 18px;
+    padding: 13px 23px;
+    background: var(--yellow);
+    color: var(--dark);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #e8bd38;
+    transition: .2s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 #e8bd38;
+}
+
+section {
+    padding: 60px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin: 0 auto 32px;
+    max-width: 650px;
+}
+
+.section-title h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.green-text {
+    color: #239d6c;
+}
+
+.purple-text {
+    color: #8162d5;
+}
+
+.blue-text {
+    color: #2089b8;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    padding: 27px 22px;
+    border-radius: 25px;
+    text-align: center;
+    transition: .25s;
+    border: 3px solid #ffffff;
+}
+
+.card:hover {
+    transform: translateY(-7px) rotate(-1deg);
+    box-shadow: 0 12px 25px #00000012;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    margin: 10px 0 8px;
+}
+
+.card p {
+    font-weight: 700;
+    font-size: .98rem;
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    display: inline-block;
+    transition: .2s;
+}
+
+.card:hover .card-icon {
+    transform: scale(1.12) rotate(5deg);
+}
+
+.card-green {
+    background: #d8f9e8;
+}
+
+.card-yellow {
+    background: #fff1b7;
+}
+
+.card-blue {
+    background: #d8f3ff;
+}
+
+.card-pink {
+    background: #ffe0ed;
+}
+
+.card-purple {
+    background: #e9e1ff;
+}
+
+.card-orange {
+    background: #ffe4c7;
+}
+
+.activities {
+    background: #f0eaff;
+}
+
+.activity-number {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: white;
+    margin: 0 auto 10px;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+.grammar {
+    background: #e1f5ff;
+}
+
+.grammar-card {
+    border-radius: 25px;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 7px 0 #c9e5f1;
+}
+
+.grammar-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.grammar-card p {
+    font-weight: 700;
+}
+
+.example {
+    background: #fff2b9;
+    padding: 13px;
+    border-radius: 15px;
+    margin-top: 15px;
+    font-weight: 900;
+}
+
+.moodle-box {
+    max-width: 900px;
+    margin: auto;
+    background: #fff1b7;
+    border: 4px dashed #edc84a;
+    border-radius: 28px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.moodle-icon {
+    font-size: 4rem;
+}
+
+.moodle-box h3 {
+    font-size: 1.7rem;
+    margin-bottom: 8px;
+}
+
+.moodle-box p {
+    font-weight: 700;
+}
+
+.quiz-section {
+    background: #ffebf4;
+}
+
+.quiz-box {
+    background: white;
+    max-width: 700px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 28px;
+    box-shadow: 0 8px 0 #f7c9df;
+}
+
+.quiz-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.answer {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 14px 17px;
+    margin: 10px 0;
+    border: 3px solid #eee8f5;
+    border-radius: 16px;
+    background: #faf8ff;
+    color: var(--dark);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.answer:hover:not(:disabled) {
+    background: #e9e1ff;
+    border-color: var(--purple);
+    transform: translateX(4px);
+}
+
+.answer:disabled {
+    cursor: default;
+}
+
+#feedback {
+    font-weight: 900;
+    font-size: 1.1rem;
+    margin: 17px 0;
+    min-height: 30px;
+}
+
+#nextButton {
+    display: none;
+}
+
+.score-box {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+footer {
+    background: #244c43;
+    color: white;
+    padding: 35px 8%;
+    text-align: center;
+}
+
+footer h2 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+footer p {
+    font-weight: 700;
+}
+
+footer .heart {
+    font-size: 2rem;
+    margin-top: 12px;
+}
+
+@media(max-width: 700px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 45px 7%;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-picture {
+        font-size: 6rem;
+    }
+
+    section {
+        padding: 45px 6%;
+    }
+
+    .moodle-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌱 Let's Prevent Together!</div>
+
+    <nav>
+        <a href="#about">Home 🏡</a>
+        <a href="#activities">Activities 🎨</a>
+        <a href="#moodle">Moodle 📚</a>
+    </nav>
+</header>
+
+<main>
+
+<!-- WELCOME -->
+
+<section class="hero" id="about">
+    <div>
+        <span class="sticker">⭐ WELCOME, STUDENTS!</span>
+
+        <h1>Let's Make<br>Healthy Choices!</h1>
+
+        <p>
+            Learn, play, and discover how to make good choices
+            for a happier and healthier future!
+        </p>
+
+        <a class="button" href="#activities">Let's Explore! 🚀</a>
+    </div>
+
+    <div class="hero-picture" aria-hidden="true">
+        🌱💚🌈
+    </div>
+</section>
+
+<!-- INTRODUCTION -->
+
+<section>
+    <div class="section-title">
+        <h2 class="green-text">👋 What's This About?</h2>
+        <p>A new adventure starts here!</p>
+    </div>
+
+    <div class="cards">
+        <article class="card card-green">
+            <div class="card-icon">🧠</div>
+            <h3>Learn</h3>
+            <p>Discover why healthy choices matter.</p>
+        </article>
+
+        <article class="card card-yellow">
+            <div class="card-icon">💡</div>
+            <h3>Think</h3>
+            <p>Share ideas and make good decisions.</p>
+        </article>
+
+        <article class="card card-pink">
+            <div class="card-icon">🤝</div>
+            <h3>Help</h3>
+            <p>Share positive messages with others.</p>
+        </article>
+    </div>
+</section>
+
+<!-- ACTIVITIES -->
+
+<section class="activities" id="activities">
+    <div class="section-title">
+        <h2 class="purple-text">🎨 What Will You Do?</h2>
+        <p>Four fun ways to learn!</p>
+    </div>
+
+    <div class="cards">
+
+        <article class="card card-blue">
+            <div class="activity-number">1</div>
+            <div class="card-icon">📢</div>
+            <h3>Read Campaigns</h3>
+            <p>Discover messages about prevention.</p>
+        </article>
+
+        <article class="card card-yellow">
+            <div class="activity-number">2</div>
+            <div class="card-icon">✍️</div>
+            <h3>Make a Promise</h3>
+            <p>Write a healthy commitment.</p>
+        </article>
+
+        <article class="card card-pink">
+            <div class="activity-number">3</div>
+            <div class="card-icon">📖</div>
+            <h3>Read and Learn</h3>
+            <p>Find the main ideas in a campaign.</p>
+        </article>
+
+        <article class="card card-green">
+            <div class="activity-number">4</div>
+            <div class="card-icon">🎨</div>
+            <h3>Create a Campaign</h3>
+            <p>Make your own positive message!</p>
+        </article>
+
+    </div>
+</section>
+
+<!-- ENGLISH -->
+
+<section class="grammar">
+    <div class="section-title">
+        <h2 class="blue-text">📚 English Time!</h2>
+        <p>Learn English while helping others.</p>
+    </div>
+
+    <div class="cards">
+
+        <article class="grammar-card">
+            <div class="card-icon">🔮</div>
+            <h3>Future Simple</h3>
+            <p>Talk about the future with <strong>WILL</strong>.</p>
+
+            <div class="example">
+                We will make good choices! 🌟
+            </div>
+        </article>
+
+        <article class="grammar-card">
+            <div class="card-icon">💬</div>
+            <h3>Modal Verbs</h3>
+            <p>Give advice with <strong>SHOULD</strong> and talk about ability with <strong>CAN</strong>.</p>
+
+            <div class="example">
+                We should help others! 💚
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- MOODLE -->
+
+<section id="moodle">
+    <div class="moodle-box">
+        <div class="moodle-icon">🎒📚</div>
+
+        <div>
+            <h3>Need Help with English?</h3>
+
+            <p>
+                No worries! 😊
+            </p>
+
+            <p>
+                In Moodle, you will find a vocabulary section
+                to help you understand new words.
+            </p>
+
+            <p>
+                Learn at your own pace. You can do it! ⭐
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- QUIZ -->
+
+<section class="quiz-section">
+    <div class="section-title">
+        <h2 class="purple-text">🎯 Quick Challenge!</h2>
+        <p>Ready to play? Pick the right answer!</p>
+    </div>
+
+    <div class="quiz-box">
+        <div id="questionNumber">Question 1 of 3</div>
+
+        <h3 id="question">What will you create?</h3>
+
+        <div id="answers"></div>
+
+        <div id="feedback" aria-live="polite"></div>
+
+        <button class="button" id="nextButton" onclick="nextQuestion()">
+            Next ➜
+        </button>
+
+        <div id="result" class="score-box"></div>
+    </div>
+</section>
+
+<!-- FINAL MESSAGE -->
+
+<section>
+    <div class="section-title">
+        <h2 class="green-text">🌈 You Can Do It!</h2>
+        <p>
+            Learn together. Make good choices. Help others! 💚
+        </p>
+
+        <div style="font-size:4rem; margin-top:20px;">
+            🌟 🌱 🤝 🌈
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <h2>🌱 Let's Prevent Together!</h2>
+    <p>Small choices can make a big difference!</p>
+    <div class="heart">💚⭐💚</div>
+</footer>
+
+<script>
+const questions = [
+    {
+        question: "1. What will you create?",
+        answers: [
+            "A prevention campaign 📢",
+            "A pizza 🍕",
+            "A spaceship 🚀"
+        ],
+        correct: 0,
+        success: "Awesome! You will create a prevention campaign! 🎉"
+    },
+    {
+        question: "2. Where can you find new words?",
+        answers: [
+            "In the Moodle vocabulary section 📚",
+            "Inside a football ⚽",
+            "Under your desk 🪑"
+        ],
+        correct: 0,
+        success: "That's right! Moodle has a vocabulary section! ⭐"
+    },
+    {
+        question: "3. Which sentence gives good advice?",
+        answers: [
+            "We should help others! 💚",
+            "We should never learn! 😴",
+            "We should ignore everyone! 🙈"
+        ],
+        correct: 0,
+        success: "Great job! Helping others is a positive choice! 🌈"
+    }
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function loadQuestion() {
+    answered = false;
+
+    const q = questions[current];
+
+    document.getElementById("questionNumber").textContent =
+        "Question " + (current + 1) + " of " + questions.length;
+
+    document.getElementById("question").textContent = q.question;
+    document.getElementById("feedback").textContent = "";
+    document.getElementById("result").textContent = "";
+
+    const next = document.getElementById("nextButton");
+    next.style.display = "none";
+    next.textContent = "Next ➜";
+    next.onclick = nextQuestion;
+
+    const container = document.getElementById("answers");
+    container.innerHTML = "";
+
+    q.answers.forEach((answer, index) => {
+        const button = document.createElement("button");
+
+        button.className = "answer";
+        button.textContent = answer;
+
+        button.onclick = () => checkAnswer(index, button);
+
+        container.appendChild(button);
+    });
+}
+
+function checkAnswer(index, selected) {
+    if (answered) return;
+
+    answered = true;
+
+    const q = questions[current];
+    const buttons = document.querySelectorAll(".answer");
+    const feedback = document.getElementById("feedback");
+
+    buttons.forEach(button => button.disabled = true);
+
+    if (index === q.correct) {
+        score++;
+        feedback.textContent = q.success;
+        feedback.style.color = "#188654";
+        selected.style.background = "#d8f9e8";
+        selected.style.borderColor = "#41c98e";
+    } else {
+        feedback.textContent =
+            "Good try! 💛 " + q.answers[q.correct];
+
+        feedback.style.color = "#a26700";
+        selected.style.background = "#ffe0ed";
+        selected.style.borderColor = "#ff9fc8";
+
+        buttons[q.correct].style.background = "#d8f9e8";
+        buttons[q.correct].style.borderColor = "#41c98e";
+    }
+
+    const next = document.getElementById("nextButton");
+    next.style.display = "inline-block";
+
+    if (current === questions.length - 1) {
+        next.textContent = "See My Score ⭐";
+    }
+}
+
+function nextQuestion() {
+    if (!answered) return;
+
+    current++;
+
+    if (current < questions.length) {
+        loadQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    document.getElementById("questionNumber").textContent =
+        "Challenge Complete! 🎉";
+
+    document.getElementById("question").textContent =
+        "You did it!";
+
+    document.getElementById("answers").innerHTML = "";
+
+    document.getElementById("feedback").textContent = "";
+
+    document.getElementById("result").textContent =
+        "⭐ Your score: " + score + " / " + questions.length +
+        " — Keep learning! 💚";
+
+    const next = document.getElementById("nextButton");
+    next.textContent = "Play Again ↻";
+    next.style.display = "inline-block";
+    next.onclick = restart;
+}
+
+function restart() {
+    current = 0;
+    score = 0;
+    loadQuestion();
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
